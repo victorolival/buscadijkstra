@@ -51,12 +51,15 @@ public class Grafos {
     }
     public void existearesta(int origem, int destino){
         boolean existe = false;
+        int peso = 0;
         for(int i=0; i< l[origem].tamanho();i++){
-            if(l[origem].get(i) == destino)
+            if(l[origem].get(i) == destino){
                 existe = true;
+                peso = p[origem].get(i);
+            }
         }
         if(existe == true)
-            System.out.println("Existe aresta entre os vertices "+origem+" e "+destino);
+            System.out.println("Existe aresta entre os vertices "+origem+" e "+destino+", peso entre eles: "+peso);
         else
             System.out.println("Não existe aresta entre os vertices "+origem+" e "+destino);
         
@@ -74,9 +77,9 @@ public class Grafos {
     }
     
     public void imprimilistaadj (int vertice){
-        System.out.print("Vertice "+vertice+": ");
+        System.out.print("Lista adjacente do vertice "+vertice+": ");
         for(int i=0; i<l[vertice].tamanho();i++)
-            System.out.print(l[vertice].get(i)+",");
+            System.out.print(l[vertice].get(i)+"(peso:"+p[vertice].get(i)+")"+",");
         System.out.println("");
     }
    
