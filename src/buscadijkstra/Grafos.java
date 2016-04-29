@@ -83,5 +83,12 @@ public class Grafos {
         System.out.println("");
     }
    
+    public void relax (int origem, int destino, int peso){
+        
+    }
     
+    
+    public void dijkstra(int origem, int destino){
+       
+    }
 }
