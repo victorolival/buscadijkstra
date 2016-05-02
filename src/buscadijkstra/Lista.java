@@ -15,6 +15,7 @@ public class Lista {
     
     ArrayList<Integer> dados = new  ArrayList<Integer>();
     
+    
     public void inserir(int valor){
         dados.add(new Integer (valor));
     }
