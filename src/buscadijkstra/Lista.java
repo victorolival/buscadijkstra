@@ -13,16 +13,16 @@ import java.util.ArrayList;
  */
 public class Lista {
     
-    ArrayList<Integer> dados = new  ArrayList<Integer>();
+    ArrayList<No> dados = new  ArrayList<No>();
     
     
-    public void inserir(int valor){
-        dados.add(new Integer (valor));
+    public void inserir(No no){
+        dados.add(no);
     }
     public void remover(int ind){
         dados.remove(ind);
     }
-    public int get(int ind){
+    public No get(int ind){
         return dados.get(ind);
     }
     public int tamanho(){
@@ -33,7 +33,7 @@ public class Lista {
             System.out.print(dados.get(i)+",");
         System.out.println("");
     }
-    public boolean consta(int valor){
+    public boolean consta(No valor){
         if(dados.contains(valor))
             return true;
         else

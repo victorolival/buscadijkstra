@@ -12,9 +12,7 @@ package buscadijkstra;
 public class Grafos {
     private int vertices;
     private Lista[] l;
-    private Lista[] p;
-    
-    
+        
     
     
 
@@ -26,25 +24,24 @@ public class Grafos {
         for(int i=0; i<l.length;i++){
             l[i] = new Lista();
         }
-        this.p = new Lista[vertices];
-        for(int i=0; i<p.length;i++){
-            p[i] = new Lista();
-        }
-        
+               
           
     }       
     
     
     public void inseriraresta(int origem, int destino, int peso){
-        l[origem].inserir(destino);
-        p[origem].inserir(peso);
+        No n = new No();
+        n.setDestino(destino);
+        n.setPeso(peso);
+        l[origem].inserir(n);
+        
     }
     
     public void removeraresta(int origem, int destino){
         for(int i=0; i<l[origem].tamanho();i++){
-            if(l[origem].get(i) == destino){
+            if(l[origem].get() == destino){
                 l[origem].remover(i);
-                p[origem].remover(i);
+                
             }
         }
                 
@@ -56,7 +53,7 @@ public class Grafos {
         for(int i=0; i< l[origem].tamanho();i++){
             if(l[origem].get(i) == destino){
                 existe = true;
-                peso = p[origem].get(i);
+                
             }
         }
         if(existe == true)
