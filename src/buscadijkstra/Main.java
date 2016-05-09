@@ -39,7 +39,7 @@ public class Main {
         grafo.imprimilistaadj(5);
         grafo.imprimilistaadj(6);
        
-        
+        grafo.dijkstra(0);
         
     
     }

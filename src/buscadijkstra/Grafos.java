@@ -81,12 +81,46 @@ public class Grafos {
         System.out.println("");
     }
    
-    public void relax (int origem, int destino, int peso){
-        
+    public void relax (int origem, int destino, int peso, ListaInt[] d, ListaInt[] ant){
+        if (d[destino].get(destino) > (d[origem].get(origem) + peso)){
+            d[destino].inserir(d[origem].get(origem) + peso);
+            ant[destino].inserir(origem);
+        }
     }
     
     
-    public void dijkstra(int origem, int destino){
+    public void dijkstra(int verticeinicial){
+        ListaInt[] s = new ListaInt[vertices];
+        ListaInt[] ant = new ListaInt[vertices];
+        ListaInt[] d = new ListaInt[vertices];
+        int custo_min = 9999;
+        int verticeatual;
+        for(int i=0; i<d.length;i++){
+            d[i] = new ListaInt();
+            d[i].inserir(custo_min);
+        }
+        for(int i=0; i<ant.length;i++){
+            ant[i] = new ListaInt();
+        }
+        for(int i=0; i<s.length;i++){
+            s[i] = new ListaInt();
+        }
+        
+        s[0].inserir(verticeinicial);
+        d[verticeinicial].remover(0);
+        d[verticeinicial].inserir(0);
+        verticeatual = verticeinicial;
+        while (s[0].tamanho() != vertices){
+            
+            for (int i = 0; i < l[verticeatual].tamanho(); i++) {
+                relax(verticeatual, l[verticeatual].get(i).getDestino(), l[verticeatual].get(i).getPeso(), d, ant);
+            }
+        
+        
+            
+        }
+        
+        
        
     }
 }

@@ -11,18 +11,17 @@ import java.util.ArrayList;
  *
  * @author victor.rolival
  */
-public class Lista {
+public class ListaInt {
     
-    ArrayList<No> dados = new  ArrayList<No>();
+    ArrayList<Integer> dados = new  ArrayList<Integer>();
     
-    
-    public void inserir(No no){
-        dados.add(no);
+    public void inserir(int valor){
+        dados.add(new Integer (valor));
     }
     public void remover(int ind){
         dados.remove(ind);
     }
-    public No get(int ind){
+    public int get(int ind){
         return dados.get(ind);
     }
     public int tamanho(){
@@ -33,19 +32,10 @@ public class Lista {
             System.out.print(dados.get(i)+",");
         System.out.println("");
     }
-    public boolean consta(No valor){
+    public boolean consta(int valor){
         if(dados.contains(valor))
             return true;
         else
             return false;
-    }
-    
-    public int indice(int valor){
-        int indice = -1;
-        for (int i = 0; i < dados.size(); i++) {
-            if(valor == dados.get(i).getDestino())
-                indice=i;
-        }
-        return indice;
     }
 }
